@@ -44,7 +44,6 @@ export class TerceiraComponent implements OnInit {
     }
   }
 
-
   private state = new Map();
 
   constructor() {
@@ -56,6 +55,7 @@ export class TerceiraComponent implements OnInit {
     const chartDom = document.getElementById('secondgraphic');
     if (chartDom) {
       this.novo = echarts.init(chartDom);
+      this.title = this.first.title;
       this.novo.setOption(this.first.option);
     } else {
       console.error('Elemento com ID "main" não encontrado!');

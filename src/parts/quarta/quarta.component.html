@@ -1,35 +1,54 @@
 <div class="main">
   <div class="content">
-    <div>
-      <h1>Dados da pandemia de ingresssantes, se possível, comparar com o de 2000</h1><br>
-      <h1>Comparar demanda e vagas de emprego anos 2000 com ingressantes</h1>
+    <h1 style="margin: 40px 40px; color: #9f8668; text-shadow: 1px 1px #301e07;">- Capítulo 3 -</h1>
+    <h3 style="width: 80%; color: #6c5335; text-shadow: 1px 1px #301e07;">Correlação?</h3>
+    <div style="color: black; display: flex;">
+      <p style="margin: 5px 5px;">X = Média salarial</p>
+      <p style="margin: 5px 5px;" > Y = Média transtornos mentais</p>
     </div>
+    <div>
+      <div id="lastgraphic"></div>
+    </div>
+
     <img src="/cap-final.png">
   </div>
-<div>
+  <div>
 
-<style>
-.main
-  {
-    display: flex;
-    justify-content: center;
-  }
-  .content{
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-  .content img{
-    width: 700px;
-  }
-  .content .title{
-    width: 400px;
-  }
-  @media (max-width: 620px) {
-    .content img{
-      width: 400px;
-    }
-  }
-</style>
+    <style>
+      .main {
+        display: flex;
+        justify-content: center;
+      }
+
+      .content {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .content img {
+        width: 700px;
+      }
+
+      .content .title {
+        width: 400px;
+      }
+
+      #lastgraphic {
+        width: 1200px;
+        height: 400px;
+      }
+
+      @media (max-width: 620px) {
+        .content img {
+          width: 400px;
+        }
+
+        #lastgraphic {
+          width: 400px;
+          height: 300px;
+        }
+      }
+    </style>

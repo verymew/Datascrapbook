@@ -1,8 +1,13 @@
 <div class="main">
   <div class="content">
     <h1 style="margin: 40px 40px; color: #9f8668; text-shadow: 1px 1px #301e07;">- Capítulo 2 -</h1>
+    <h3 style="width: 80%; color: #6c5335; text-shadow: 1px 1px #301e07;">{{title}}</h3>
     <div>
-      <div id="secondgraphic" ></div>
+      <button (click)="changeState('first')" class="button is-link is-outlined">Principal</button>
+      <button (click)="changeState('second')" class="button is-link is-outlined">Idade</button>
+    </div>
+    <div>
+      <div id="secondgraphic"></div>
     </div>
     <img src="/frame-3-2.png">
   </div>
@@ -31,15 +36,22 @@
       }
 
       #secondgraphic {
-        min-width: 300px;
-        min-height: 400px;
-        width: 500px;
+        width: 700px;
         height: 400px;
+      }
+
+      button{
+        margin: 10px 10px;
       }
 
       @media (max-width: 620px) {
         .content img {
           width: 400px;
+        }
+
+        #secondgraphic {
+          width: 300px;
+          height: 300px;
         }
       }
     </style>

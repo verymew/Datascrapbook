@@ -8,65 +8,63 @@ import * as echarts from 'echarts';
   templateUrl: './terceira.component.html',
   styleUrl: './terceira.component.css'
 })
-export class TerceiraComponent implements OnInit{
+export class TerceiraComponent implements OnInit {
   novo: echarts.ECharts | undefined;
-  private option = {
-    title: {
-      text: 'World Population'
-    },
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'shadow'
-      }
-    },
-    legend: {},
-    grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
-      containLabel: true
-    },
-    xAxis: {
-      type: 'value',
-      boundaryGap: [0, 0.01]
-    },
-    yAxis: {
-      type: 'category',
-      data: ['Brazil', 'Indonesia', 'USA', 'India', 'China', 'World']
-    },
-    series: [
-      {
-        name: '2011',
-        type: 'bar',
-        data: [18203, 23489, 29034, 104970, 131744, 630230]
-      },
-      {
-        name: '2012',
-        type: 'bar',
-        data: [19325, 23438, 31000, 121594, 134141, 681807]
-      }
-    ]
-  };
-  private teste = new Map();
+  public title:string = "";
 
-  constructor()
-  {
-    this.teste.set("first", this.option);
+  private first = {
+    title: "Média de salário anual (em doláres)",
+    option: {
+      xAxis: {
+        data: ['US', 'Suíça', 'JP', 'BR', 'IN']
+      },
+      yAxis: {},
+      series: [
+        {
+          type: 'bar',
+          data: [70, 65, 50, 20, 15]
+        }
+      ]
+    }
+  }
+
+  private second = {
+    title: "Média de idade",
+    option: {
+      xAxis: {
+        data: ['Us', 'Suíça', 'JP', 'BR', 'IN']
+      },
+      yAxis: {},
+      series: [
+        {
+          type: 'bar',
+          data: [32, 31, 31, 27, 25]
+        }
+      ]
+    }
+  }
+
+
+  private state = new Map();
+
+  constructor() {
+    this.state.set("first", this.first);
+    this.state.set("second", this.second);
   }
 
   ngOnInit(): void {
     const chartDom = document.getElementById('secondgraphic');
     if (chartDom) {
       this.novo = echarts.init(chartDom);
-      this.novo.setOption(this.option);
+      this.novo.setOption(this.first.option);
     } else {
       console.error('Elemento com ID "main" não encontrado!');
     }
   }
 
-  changeState(): void
-  {
-
+  changeState(state: string): void {
+    let getopt = this.state.get(state);
+    this.title = getopt.title;
+    this.novo?.setOption(getopt.option);
   }
 }

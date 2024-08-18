@@ -1,11 +1,14 @@
 <div class="main">
   <div class="content">
     <img style="width: 350px;" src="/2016.png">
-    <h1>- Capítulo 1 -</h1>
-    <h3 style="width: 80%;">{{title}}</h3>
+    <h1 style=" color: #9f8668; text-shadow: 1px 1px #301e07;">- Capítulo 1 -</h1>
+    <h3 style="width: 80%; color: #6c5335; text-shadow: 1px 1px #301e07;">{{title}}</h3>
     <div>
+      <button (click)="changeState('first')" class="button is-link is-outlined">Principal</button>
+      <button (click)="changeState('second')" class="button is-link is-outlined">Doenças</button>
+      <button (click)="changeState('third')" class="button is-link is-outlined">Sexo</button>
     </div>
-    <div>
+    <div style="margin: 20px 20px;">
       <div id="firstgraphic" class="graficos"></div>
     </div>
     <img src="/cap2.png">
@@ -26,6 +29,8 @@
         align-items: center;
       }
 
+      .content
+
       .content img {
         width: 800px;
       }
@@ -33,6 +38,10 @@
       #firstgraphic {
         width: 500px;
         height: 400px;
+      }
+
+      button{
+        margin: 10px 10px;
       }
 
       @media (max-width: 620px) {

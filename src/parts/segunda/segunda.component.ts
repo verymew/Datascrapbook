@@ -8,57 +8,53 @@ import * as echarts from 'echarts';
   templateUrl: './segunda.component.html',
   styleUrl: './segunda.component.css'
 })
-export class SegundaComponent implements AfterViewInit{
+export class SegundaComponent implements OnInit{
   myChart: echarts.ECharts | undefined;
+  public title = "";
+  private firstgrap = {
+    title: "Porcentagem de trabalhadores com doenças mentais",
+    option: {
+      tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b}: {c} ({d}%)' // Exemplo de uso dos placeholders
+      },
+      series: [
+        {
+          name: 'Data', // Isso é o que {a} irá mostrar
+          type: 'pie',
+          radius: ['40%', '70%'],
+          avoidLabelOverlap: false,
+          label: {
+            show: true,
+            position: 'outside',
+            formatter: '{b}: {d}%' // {b} é o nome da fatia, {d} é a porcentagem
+          },
+          labelLine: {
+            show: true
+          },
+          data: [
+            { value: 575, name: 'Possui' }, // {b} será 'A', {c} será 335
+            { value: 531, name: 'Não possui' }, // {b} será 'B', {c} será 234
+            { value: 327, name: 'Talvez' }
+          ]
+        }
+      ]
+    },
+  };
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     const chartDom = document.getElementById('firstgraphic');
     if (chartDom) {
       this.myChart = echarts.init(chartDom);
-
-      const option = {
-        title: {
-          text: 'World Population'
-        },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
-        },
-        legend: {},
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: {
-          type: 'value',
-          boundaryGap: [0, 0.01]
-        },
-        yAxis: {
-          type: 'category',
-          data: ['Brazil', 'Indonesia', 'USA', 'India', 'China', 'World']
-        },
-        series: [
-          {
-            name: '2011',
-            type: 'bar',
-            data: [18203, 23489, 29034, 104970, 131744, 630230]
-          },
-          {
-            name: '2012',
-            type: 'bar',
-            data: [19325, 23438, 31000, 121594, 134141, 681807]
-          }
-        ]
-      };
-
-      this.myChart.setOption(option);
+      this.myChart.setOption(this.firstgrap.option);
+      this.title = this.firstgrap.title;
     } else {
       console.error('Elemento com ID "main" não encontrado!');
     }
+  }
+
+  changeState(): void{
+
   }
 }
 
